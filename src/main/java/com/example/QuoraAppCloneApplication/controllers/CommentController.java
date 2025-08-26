@@ -21,6 +21,11 @@ public class CommentController {
 
     @GetMapping("/comment/{commentId}")
     public List<Comment> getCommentByCommentId(@PathVariable Long commentId, @RequestParam int page, @RequestParam int size) {
-        reutrn commentService.getRepliesByCommentId(commentId, page, size);
+        reutrn commentService.getCommentByCommentId(commentId, page, size);
+    }
+
+    @GetMapping("answer/{answerId}")
+    public List<Answer> getAnswerByQuestionId(@PathVariable Long answerId, @RequestParam int page, @RequestParam int size){
+        return answerService.getAnswerByQuestionId(answerId,page,size);
     }
 }
